@@ -26,9 +26,10 @@ void loop() {
      }
     }
    }
-   int sensorValue = analogRead(A1);
+   
+   int sensorValue = analogRead(A10);
    float voltage = sensorValue * (5.0 / 1024.0);
-
+   float turbidity = (-1120.4*voltage*voltage) + (5724.4 * voltage) - 4352.9;
    avgValue=0;
    for(int i=2;i<8;i++)
    avgValue+=buf[i];
@@ -38,6 +39,8 @@ void loop() {
    Serial.println(phValue*1.7+3.05);
    Serial.println ("Sensor Output (V):");
    Serial.println (voltage);
+   Serial.println ("Turbidity Output : ");
+   Serial.println(turbidity);
    Serial.println();
    delay(20);
 }
