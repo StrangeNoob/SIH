@@ -11,7 +11,7 @@ void loop() {
    for(int i=0;i<10;i++) 
    { 
     buf[i]=analogRead(analogInPin);
-    delay(750);
+    delay(100);
    }
    for(int i=0;i<9;i++)
    {
@@ -31,7 +31,7 @@ void loop() {
    float pHVol=(float)avgValue*5.0/1024/6;
    float phValue = -5.70 * pHVol + 21.34;
    Serial.print("sensor = ");
-   Serial.println(phValue);
+   Serial.println(phValue*1.7+3.05);
    
-   delay(20);
+   delay(100);
 }
