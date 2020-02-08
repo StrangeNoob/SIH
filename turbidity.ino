@@ -1,15 +1,9 @@
 void setup() {
-  Serial.begin(9600);
-
+  Serial.begin(9600); //Baud rate: 9600
 }
 void loop() {
-  int sensorValue = analogRead(A1);
-  float voltage = sensorValue * (5.0 / 1024.0);
-  float turbidity = (-1120.4*voltage*voltage) + (5724.4 * voltage) - 4352.9;
-  Serial.println ("Sensor Output (V):");
-  Serial.println (voltage);
-  Serial.println ("Turbidity Output : ");
-  Serial.println(turbidity);
-  Serial.println();
-  delay(1000);
+  int sensorValue = analogRead(A1);// read the input on analog pin 0:
+  float voltage = sensorValue * (5.0 / 1024.0); // Convert the analog reading (which goes from 0 - 1023) to a voltage (0 - 5V):
+  Serial.println(voltage); // print out the value you read:
+  delay(500);
 }
